@@ -3,20 +3,27 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 import numpy as np
 import requests
+import tempfile
 import os
 
-
+# Function to download the model file to a temporary location on disk
 def download_model():
-    model_url = 'https://github.com/DrNikhilV/Web-Applications/raw/main/Brain%20Tumor%20Prediction/adrelu.h5'
+    model_url = 'https://raw.githubusercontent.com/DrNikhilV/My-Projects/main/NeuroSight%20AI/adrelu.h5'  # Replace with the correct raw URL
     response = requests.get(model_url)
     response.raise_for_status()
-    with open('model.h5', 'wb') as f:
-        f.write(response.content)
-    return 'model.h5'
+    
+    # Create a temporary file
+    temp_model_file = tempfile.NamedTemporaryFile(delete=False, suffix='.h5')
+    temp_model_file.write(response.content)
+    temp_model_file.close()
+    
+    return temp_model_file.name
 
+# Load the saved model
 model_file_path = download_model()
 loaded_model = tf.keras.models.load_model(model_file_path)
 
+# Define a dictionary to map numerical labels to class names
 class_names = {
     0: 'Glioma',
     1: 'Meningioma',
@@ -45,4 +52,5 @@ if uploaded_file is not None:
     prediction = predict_class(uploaded_file)
     st.write("Prediction:", prediction)
 
+# Remove the temporary model file after using it
 os.remove(model_file_path)
