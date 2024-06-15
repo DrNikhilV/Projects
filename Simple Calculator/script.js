@@ -30,6 +30,7 @@ class Calculator {
         this.currentOperand = ''
     }
 
+
     compute() {
         let computation
         const prev = parseFloat(this.previousOperand)
