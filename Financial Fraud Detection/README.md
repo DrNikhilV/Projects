@@ -1,7 +1,5 @@
 # Financial_Fraud_Detection
 
-# Financial Fraud Detection Project
-
 ## Problem Statement
 
 ### Financial Fraud in Transactions
