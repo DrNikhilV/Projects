@@ -68,4 +68,4 @@ Generated a synthetic dataset with features including type of payment, and initi
 
 ## Conclusion
 
-This project provides a comprehensive solution to the financial fraud problem by leveraging machine learning and web development to create an accurate, efficient, scalable, and user-friendly application. With an accuracy of 99.98%, our Random Forest model stands out in detecting fraudulent transactions, thus helping financial institutions combat fraud more effectively.
+This project provides a comprehensive solution to the financial fraud problem by leveraging machine learning and web development to create an accurate, efficient, scalable, and user-friendly application. With an accuracy of 97%, our Random Forest model stands out in detecting fraudulent transactions, thus helping financial institutions combat fraud more effectively.
